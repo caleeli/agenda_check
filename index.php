@@ -32,7 +32,7 @@
             .buttons{
                 position:absolute;
                 top:30%;
-                width:100%;        
+                width:100%;
             }
             .button{
                 padding: 1em;
@@ -40,6 +40,7 @@
                 color: black;
                 display: inline-block;
                 font-size: 200%;
+                box-shadow: 10px 10px 5px #008888
             }
             form {
                 

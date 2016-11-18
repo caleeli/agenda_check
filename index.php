@@ -4,7 +4,7 @@
         <title>AGENDA</title>
         <meta charset="utf-8" />
         <meta name="viewport" id="jb-viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=0" />
-        <meta name="description" content="This is a Juicebox Gallery. Get yours at www.juicebox.net" />
+        <meta name="description" content="Una agenda diferente para tí" />
         <script src="jquery.min.js"></script>
         <style type="text/css">
             html, body, form {

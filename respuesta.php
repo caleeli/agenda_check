@@ -10,3 +10,5 @@ $pregunta = $_REQUEST['pregunta'];
 @$data->$pregunta->respuesta=$_REQUEST['respuesta'];
 
 @$content = file_put_contents($filename, json_encode($data));
+echo $filename;
+var_dump($_SESSION);

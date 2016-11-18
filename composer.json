@@ -1,0 +1,13 @@
+{
+    "name": "davidcallizaya/photos",
+    "authors": [
+        {
+            "name": "David Callizaya",
+            "email": "davidcallizaya@gmail.com"
+        }
+    ],
+    "require": {
+        "oodle/krumo": "^0.5.0",
+        "raveren/kint": "^1.0"
+    }
+}

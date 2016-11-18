@@ -36,7 +36,7 @@
                 position:absolute;
                 top:0px;
                 width:100%;
-                padding: 1em;
+                padding: 0.5em;
                 background-color: rgba(200,200,200,0.8);
                 color: black;
             }
@@ -208,7 +208,7 @@
             <img class="slide" src="images/i6d.jpg">
         </div>
         <div class="slide" id="p6">
-            <div class="question">Enumere la siguiente lista en orden de importancia (10 el más importante y 1 lo menos importante):</div>
+            <div class="question">Enumere la siguiente lista en orden de importancia (1 el más importante y 10 el menos importante):</div>
             <center class="buttons buttons2" style="top:4em;">
                 <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) TAMAÑO</a>
                 <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) PESO</a>
@@ -219,7 +219,7 @@
                 <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) FRASES Y NOTAS INSPIRADORAS</a>
                 <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) GUIA TELEFÓNICA</a>
                 <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) CONSEJOS DE SALUD y BELLEZA</a>
-                <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) CONSEJOS DE SALUD y BELLEZA</a>
+                <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) STIKERS</a>
                 <a class="button" style="background-color: lightgreen;" href="javascript:void(0)" onclick="responderOrden(this)"><img src="images/check.png" style="height:2em"></a>
             </center>
             <img class="slide" src="images/p6.jpg">

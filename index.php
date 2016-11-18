@@ -44,6 +44,9 @@
                 font-size: 200%;
                 box-shadow: 10px 10px 5px #008888
             }
+            .buttons2 .button {
+                font-size: 100%;
+            }
             form {
                 
             }
@@ -159,7 +162,7 @@
         </div>
         <div class="slide" id="p5">
             <div class="question">Para usted una agenda debe ser:</div>
-            <center class="buttons">
+            <center class="buttons buttons2">
                 <a class="button" href="javascript:void(0)" onclick="responder(this)">SOBRIA Y ELEGANTE</a>
                 <a class="button" href="javascript:void(0)" onclick="responder(this)">ELEGANTE Y DIVERTIDA</a>
                 <a class="button" href="javascript:void(0)" onclick="responder(this)">COLORIDA Y ALEGRE</a>
@@ -197,7 +200,7 @@
         </div>
         <div class="slide" id="p6">
             <div class="question">Enumere la siguiente lista en orden de importancia (10 el más importante y 1 lo menos importante):</div>
-            <center class="buttons" style="top:4em;">
+            <center class="buttons buttons2" style="top:4em;">
                 <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) TAMAÑO</a>
                 <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) PESO</a>
                 <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) DISEÑO DE LA TAPA</a>

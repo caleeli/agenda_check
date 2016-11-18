@@ -325,7 +325,7 @@
                 $("#edad").remove();
                 $(current).fadeOut();
                 enable(current.nextElementSibling);
-                //$.ajax({url:"empezar.php",data:{nombre:nombre,email:email,celular:celular,edad:edad}});
+                $.ajax({url:"empezar.php",data:{nombre:nombre,email:email,celular:celular,edad:edad}});
             }
             var actualOrden=1;
             function ordena(who) {

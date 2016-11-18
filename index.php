@@ -248,13 +248,14 @@
                     var $input=$("<input />");
                     $input.attr("placeholder",$(elem).attr("placeholder"));
                     $(elem).html($input);
+                    $(elem).append('<a href="javascript:void(0)" onclick="doit()"><img src="images/next.png" style="height:2em"></a>');
                 })
                 $(p).fadeIn();
                 current = p;
             }
             function doit(){
                 $(current).find("input").each(function(){
-                    $.ajax({url:"/porque.php",data:{pregunta:current.id,respuesta:this.value}});
+                    $.ajax({url:"porque.php",data:{pregunta:current.id,respuesta:this.value}});
                 });
                 $(current).fadeOut();
                 enable(current.nextElementSibling);
@@ -264,7 +265,7 @@
                 var pregunta = who.parentNode.parentNode;
                 var ans=$(who).text();
                 if(!ans) ans=who.getAttribute('title');
-                $.ajax({url:"/respuesta.php",data:{pregunta:pregunta.id,respuesta:ans}});
+                $.ajax({url:"respuesta.php",data:{pregunta:pregunta.id,respuesta:ans}});
                 respuestas[pregunta.id]=ans;
                 var inputs=who.parentNode.getElementsByTagName("input");
                 if(inputs.length) {
@@ -277,7 +278,7 @@
                 var pregunta = who.parentNode.parentNode;
                 var ans=$(who.parentNode).text();
                 if(!ans) ans=who.getAttribute('title');
-                $.ajax({url:"/respuesta.php",data:{pregunta:pregunta.id,respuesta:ans}});
+                $.ajax({url:"respuesta.php",data:{pregunta:pregunta.id,respuesta:ans}});
                 respuestas[pregunta.id]=ans;
                 var inputs=who.parentNode.getElementsByTagName("input");
                 if(inputs.length) {
@@ -310,9 +311,9 @@
                 $("#email").remove();
                 $("#celular").remove();
                 $("#edad").remove();
-                //$.ajax({url:"/empezar.php",data:{nombre:nombre,email:email,celular:celular,edad:edad}});
                 $(current).fadeOut();
                 enable(current.nextElementSibling);
+                //$.ajax({url:"empezar.php",data:{nombre:nombre,email:email,celular:celular,edad:edad}});
             }
             var actualOrden=1;
             function ordena(who) {

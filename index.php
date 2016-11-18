@@ -13,9 +13,18 @@
                 height:100%;
                 overflow: hidden;
             }
-            img.slide{
-                height: 100%;
-                text-align: center;
+            @media screen and (orientation:portrait) {
+                img.slide{
+                    width: 100%;
+                    text-align: center;
+                    margin-top:20%;
+                }
+            }
+            @media screen and (orientation:landscape) {
+                img.slide{
+                    height: 100%;
+                    text-align: center;
+                }
             }
             div.slide{
                 height: 100%;

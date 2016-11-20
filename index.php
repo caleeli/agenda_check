@@ -145,9 +145,17 @@
             <div class="slide" id="p1">
                 <div class="question">¿Utilizas o alguna vez utilizaste agenda impresa o digital?</div>
                 <center class="buttons">
-                    <a class="button" href="javascript:void(0)" onclick="responder(this)">SI</a>
-                    <a class="button" href="javascript:void(0)" onclick="responder(this, true)">NO</a>
-                    <br/>
+                    <a class="button" href="javascript:void(0)" onclick="responder(this, true, 'p2')">SI</a>
+                    <a class="button" href="javascript:void(0)" onclick="responder(this)">NO</a>
+                </center>
+                <img class="slide menosMargin" src="images/p1.jpg">
+                <div class="navbar">
+                    <a class="button" href="javascript:void(0)" onclick="volver(this)"><img src="images/prev.png" style="height:1em"></a>
+                </div>
+            </div>
+            <div class="slide" id="p1porque">
+                <div class="question">¿Por qué?</div>
+                <center class="buttons">
                     <span id="p1_porque" class="answer" placeholder="¿PORQUE?"></span>
                 </center>
                 <img class="slide menosMargin" src="images/p1.jpg">
@@ -156,7 +164,7 @@
                 </div>
             </div>
             <div class="slide" id="p2">
-                <div class="question">¿Que tipo de agenda es de su preferencia?</div>
+                <div class="question">¿Qué tipo de agenda es de su preferencia?</div>
                 <center class="buttons">
                     <span class="answer" placeholder="¿PORQUE?"></span>
                     <br/>
@@ -304,7 +312,7 @@
             <div class="slide" id="p9telefono">
                 <div class="question">¿Cuál es tu número de telefono?</div>
                 <center class="buttons">
-                    <span class="answer" placeholder="TELÉFONO"></span>
+                    <span class="answer" placeholder="TELÉFONO" type="tel"></span>
                 </center>
                 <img class="slide" src="images/p8.jpg">
                 <div class="navbar">
@@ -314,7 +322,7 @@
             <div class="slide" id="p9email">
                 <div class="question">¿Cuál es tu correo electrónico?</div>
                 <center class="buttons">
-                    <span class="answer" placeholder="E-MAIL"></span>
+                    <span class="answer" placeholder="E-MAIL" type="email" name="email"></span>
                 </center>
                 <img class="slide" src="images/p8.jpg">
                 <div class="navbar">
@@ -351,7 +359,11 @@
                 $(p).find(".answer").each(function () {
                     var elem = this;
                     var $input = $("<input />");
+                    var type = $(elem).attr("type") ? $(elem).attr("type"):'text';
+                    var name = $(elem).attr("name") ? $(elem).attr("name"):'';
                     $input.attr("placeholder", $(elem).attr("placeholder"));
+                    $input.attr("type", type);
+                    if(name) $input.attr("name", name);
                     $(elem).html($input);
                     $(elem).append('<a href="javascript:void(0)" onclick="doit()"><img src="images/next.png" style="height:2em"></a>');
                     if (focus) {

@@ -31,7 +31,7 @@
                     margin-left: -33%;
                 }
                 div.question{
-                    font-size: 212%;
+                    font-size: 200%;
                 }
                 .slide3{
                     height: 30%;
@@ -48,7 +48,7 @@
                     width: auto!important;
                 }
                 .buttons3 .button {
-                    font-size: 110%;
+                    font-size: 100%;
                 }
             }
             @media screen and (orientation:landscape) {

@@ -40,7 +40,7 @@
                 }
                 .chooseButtons {
                     height:100%;
-                    top: 5%!important;
+                    top: 12%!important;
                 }
                 .chooseButtons a img{
                     height:100%;
@@ -76,6 +76,9 @@
                 .buttons3 .button {
                     font-size: 136%;
                 }
+            }
+            input {
+                width:50%;
             }
             div.slide{
                 height: 100%;

@@ -252,7 +252,7 @@
                     <a class="button" href="javascript:void(0)" onclick="responder(this)">COLORIDA Y ALEGRE</a>
                     <a class="button" href="javascript:void(0)" onclick="responder(this)">PRACTICA, PEQUEÑA Y SIN MUCHO DETALLE</a>
                 </center>
-                <img class="slide" src="images/p5.jpg">
+                <img class="slide" src="images/p5.jpg?1">
                 <div class="navbar">
                     <a class="button" href="javascript:void(0)" onclick="volver(this)"><img src="images/prev.png" style="height:1em"></a>
                 </div>
@@ -271,7 +271,7 @@
                     <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) CONSEJOS DE SALUD y BELLEZA</a>
                     <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) STIKERS</a>
                 </center>
-                <img class="slide" src="images/p6.jpg">
+                <img class="slide" src="images/p6.jpg?1">
                 <div class="navbar">
                     <a class="button" href="javascript:void(0)" onclick="volver(this)"><img src="images/prev.png" style="height:1em"></a>
                     <a class="button" style="background-color: lightgreen;float:right;" href="javascript:void(0)" onclick="responderOrden(this)"><img src="images/check.png" style="height:1em"></a>

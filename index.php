@@ -48,7 +48,7 @@
                     width: auto!important;
                 }
                 .buttons3 .button {
-                    font-size: 90%;
+                    font-size: 70%;
                 }
             }
             @media screen and (orientation:landscape) {
@@ -433,7 +433,7 @@
                 var nombre = $("#nombre").val();
                 var email = $("#email").val();
                 var celular = $("#celular").val();
-                var edad = $("#edad").val();
+                var edad = $(who).text();
                 $("#nombre").remove();
                 $("#email").remove();
                 $("#celular").remove();

@@ -365,7 +365,11 @@
                     $input.attr("type", type);
                     if(name) $input.attr("name", name);
                     $(elem).html($input);
-                    $(elem).append('<a href="javascript:void(0)" onclick="doit()"><img src="images/next.png" style="height:2em"></a>');
+                    var $a=$('<a href="javascript:void(0)" onclick="doit()"><img src="images/next.png" style="height:2em"></a>');
+                    $a.focus(function(){
+                        doit();
+                    });
+                    $(elem).append($a);
                     if (focus) {
                         $input.focus();
                     }

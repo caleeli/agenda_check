@@ -1,3 +1,11 @@
+<html lang="en">
+    <head>
+        <title>Respuestas de la encuesta</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" id="jb-viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="description" content="Tabla con todas las respuestas de la encuesta." />
+    </head>
+    <body>
 <?php
 require_once './vendor/autoload.php';
 $krumo = new Krumo;
@@ -48,3 +56,6 @@ foreach (glob('encuestas/*.txt') as $f) {
     echo "</tr>";
 }
 echo "</table>";
+?>
+    </body>
+</html>

@@ -259,7 +259,7 @@
             </div>
             <div class="slide" id="p6">
                 <div class="question">Enumere la siguiente lista en orden de importancia (1 el más importante y 10 el menos importante):</div>
-                <center class="buttons buttons3" style="bottom:4em;">
+                <center class="buttons buttons3" style="bottom:4em;" id="listaEnum">
                     <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) TAMAÑO</a>
                     <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) PESO</a>
                     <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) DISEÑO DE LA TAPA</a>
@@ -406,7 +406,7 @@
             }
             function responderOrden(who) {
                 var pregunta = who.parentNode.parentNode;
-                var ans = $(who.parentNode).text();
+                var ans = $("#listaEnum").text();
                 if (!ans)
                     ans = who.getAttribute('title');
                 $.ajax({url: "respuesta.php", data: {pregunta: pregunta.id, respuesta: ans}});

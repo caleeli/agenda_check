@@ -18,7 +18,7 @@ $preguntas=[
 ];
 echo "<table border='1' style='font-size: 10pt'>";
 echo "<tr style='background-color: lightblue;'>";
-echo "<td>Nombre</td><td>Teléfono</td><td>Email</td><td>Edad</td>";
+echo "<th>Nombre</th><th>Teléfono</th><th>Email</th><th>Edad</th>";
 foreach($preguntas as $p=>$lab){
     echo "<th>$lab</th>";
 }

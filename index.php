@@ -30,11 +30,14 @@
                 img.menosMargin{
                     margin-left: -33%;
                 }
+                .question-small {
+                    font-size: 150%!important;
+                }
                 div.question{
                     font-size: 180%;
                 }
                 .slide3{
-                    height: 30%;
+                    height: 25%;
                     overflow: hidden;
                     padding: 0px!important;
                 }
@@ -48,13 +51,17 @@
                     width: auto!important;
                 }
                 .buttons3 .button {
-                    font-size: 70%;
+                    font-size: 85%;
+                    font-weight: bold;
                 }
             }
             @media screen and (orientation:landscape) {
                 img.slide{
                     height: 100%;
                     text-align: center;
+                }
+                .question-small {
+                    font-size: 200%!important;
                 }
                 div.question{
                     font-size: 312%;
@@ -96,7 +103,7 @@
             }
             .buttons{
                 position:absolute;
-                top:30%;
+                bottom:9em;
                 width:100%;
                 font-family: MyRounded;
             }
@@ -117,6 +124,13 @@
             }
             .buttons2 .button {
                 font-size: 132%;
+            }
+            .small-button {
+                background-color: lightgreen;
+                display: inline-block;
+                box-shadow: 2px 2px 5px #008888;
+                padding: 0.2em 0.4em;
+                border: 1px solid black;
             }
             form {
 
@@ -214,9 +228,9 @@
             <div class="slide" id="p3b">
                 <div class="question">¿Qué diseño le gusta más?</div>
                 <center class="buttons chooseButtons">
-                    <a class="button slide3" href="javascript:void(0)" onclick="responder(this,true,'p4')" title="p3d"><img class="slide" src="images/p3d.jpg"></a>
-                    <a class="button slide3" href="javascript:void(0)" onclick="responder(this,true,'p4')" title="p3e"><img class="slide slide3" src="images/p3e.jpg"></a>
-                    <a class="button slide3" href="javascript:void(0)" onclick="responder(this,true,'p4')" title="p3f"><img class="slide slide3" src="images/p3f.jpg"></a>
+                    <a class="button slide3" href="javascript:void(0)" onclick="responder(this, true, 'p4')" title="p3d"><img class="slide" src="images/p3d.jpg"></a>
+                    <a class="button slide3" href="javascript:void(0)" onclick="responder(this, true, 'p4')" title="p3e"><img class="slide slide3" src="images/p3e.jpg"></a>
+                    <a class="button slide3" href="javascript:void(0)" onclick="responder(this, true, 'p4')" title="p3f"><img class="slide slide3" src="images/p3f.jpg"></a>
                 </center>
                 <div class="navbar">
                     <a class="button" href="javascript:void(0)" onclick="volver(this)"><img src="images/prev.png" style="height:1em"></a>
@@ -258,8 +272,8 @@
                 </div>
             </div>
             <div class="slide" id="p6">
-                <div class="question">Enumere la siguiente lista en orden de importancia (1 el más importante y 10 el menos importante):</div>
-                <center class="buttons buttons3" style="bottom:4em;" id="listaEnum">
+                <div class="question question-small">Enumere la siguiente lista en orden de importancia (1 el más importante y 10 el menos importante):</div>
+                <center class="buttons buttons3"  id="listaEnum">
                     <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) TAMAÑO</a>
                     <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) PESO</a>
                     <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) DISEÑO DE LA TAPA</a>
@@ -271,7 +285,7 @@
                     <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) CONSEJOS DE SALUD y BELLEZA</a>
                     <a class="button" href="javascript:void(0)" onclick="ordena(this)">(0) STIKERS</a>
                 </center>
-                <img class="slide" src="images/p6.jpg?1">
+                <img class="slide" src="images/p6.jpg?2">
                 <div class="navbar">
                     <a class="button" href="javascript:void(0)" onclick="volver(this)"><img src="images/prev.png" style="height:1em"></a>
                     <a class="button" style="background-color: lightgreen;float:right;" href="javascript:void(0)" onclick="responderOrden(this)"><img src="images/check.png" style="height:1em"></a>
@@ -292,7 +306,7 @@
                 <div class="question">¿Le gustaría recibir mayor información de la agenda y/o aplicación para celular?</div>
                 <center class="buttons">
                     <a class="button" href="javascript:void(0)" onclick="responder(this)">SI</a>
-                    <a class="button" href="javascript:void(0)" onclick="responder(this,true,'gracias')">NO</a>
+                    <a class="button" href="javascript:void(0)" onclick="responder(this, true, 'gracias')">NO</a>
                 </center>
                 <img class="slide" src="images/p8.jpg">
                 <div class="navbar">
@@ -359,14 +373,15 @@
                 $(p).find(".answer").each(function () {
                     var elem = this;
                     var $input = $("<input />");
-                    var type = $(elem).attr("type") ? $(elem).attr("type"):'text';
-                    var name = $(elem).attr("name") ? $(elem).attr("name"):'';
+                    var type = $(elem).attr("type") ? $(elem).attr("type") : 'text';
+                    var name = $(elem).attr("name") ? $(elem).attr("name") : '';
                     $input.attr("placeholder", $(elem).attr("placeholder"));
                     $input.attr("type", type);
-                    if(name) $input.attr("name", name);
+                    if (name)
+                        $input.attr("name", name);
                     $(elem).html($input);
-                    var $a=$('<a href="javascript:void(0)" onclick="doit()"><img src="images/next.png" style="height:2em"></a>');
-                    $a.focus(function(){
+                    var $a = $('<a class="small-button" href="javascript:void(0)" onclick="doit()"><img src="images/next.png" style="height:2em"></a>');
+                    $a.focus(function () {
                         doit();
                     });
                     $(elem).append($a);
@@ -380,7 +395,8 @@
                     $.ajax({url: "porque.php", data: {pregunta: current.id, respuesta: this.value}});
                 });
                 $(current).fadeOut();
-                if(!next) next = current.nextElementSibling;
+                if (!next)
+                    next = current.nextElementSibling;
                 enable(next);
                 return false;
             }
@@ -395,8 +411,8 @@
                     enableTexts(current);
                 }
                 var inputs = who.parentNode.getElementsByTagName("input");
-                if(next) {
-                    next=$("#"+next)[0];
+                if (next) {
+                    next = $("#" + next)[0];
                 }
                 if (inputs.length) {
                     inputs[0].focus();

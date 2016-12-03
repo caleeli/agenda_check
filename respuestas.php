@@ -46,10 +46,10 @@ foreach (glob('encuestas/*.txt') as $f) {
         $res .= isset($respuestas->$p->respuesta) ? $respuestas->$p->respuesta : '';
         $res .= isset($respuestas->$p->porque) ? $respuestas->$p->porque : '';
         if ($p == 'p3a' || $p == 'p3b') {
-            $res = empty($res) ? '' : ($res.'<img style="width:2em" class="slide" src="images/'.$res.'.jpg">');
+            $res = empty($res) ? '' : ($res);
         } elseif ($p == 'p3c') {
             $a = ['p3g' => 'A4', 'p3h' => 'A5', 'p3i' => 'A6'];
-            $res = empty($a[$res]) ? '' : ($a[$res].'<img style="width:2em" class="slide" src="images/'.$res.'.jpg">');
+            $res = empty($a[$res]) ? '' : ($a[$res]);
         }
         echo "<td>$res</td>";
     }

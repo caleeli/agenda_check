@@ -7,6 +7,8 @@ $title = 'Personaliza tu agenda';
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Agenda Personalizada</title>
+        <link rel="shortcut icon" href="personaliza/agenda.ico">
+        <meta name="description" content="Una agenda diferente para tí" />
         <link rel="stylesheet" href="jquery.mobile/css/themes/default/jquery.mobile-1.4.5.min.css">
         <link rel="stylesheet" href="jquery.mobile/_assets/css/jqm-demos.css">
         <link rel="stylesheet" href="personaliza/personaliza.css">

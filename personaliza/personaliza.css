@@ -1,0 +1,25 @@
+.tapa1{
+    height: 150px;
+    border-radius: 0px 8px 8px 0px;
+}
+.tapa2{
+    height: 300px;
+    width: 211px;
+    border-radius: 0px 16px 16px 0px;
+}
+.nombre{
+    position: absolute;
+    top: 224px;
+    width: 211px;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.hoja1{
+    height: 150px;
+}
+.hoja2{
+    height: 300px;
+    width: 211px;
+}

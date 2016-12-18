@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="sample-flipbook">
-            <p>Haz clic en las esquinas de las páginas para avanzar o retroceder</p>
+            <p>Haz clic o jala las esquinas de las páginas para avanzar o retroceder</p>
             <div class="flipbook-viewport">
                 <div class="container">
                     <div class="flipbook">

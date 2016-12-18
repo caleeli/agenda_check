@@ -1,0 +1,10 @@
+.fila{
+    display: block;
+}
+.fila * {
+    display: inline-block;
+}
+#calcular {
+    background-color: lightblue;
+}
+

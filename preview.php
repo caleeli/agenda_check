@@ -10,6 +10,7 @@
         <script type="text/javascript" src="turnjs/extras/modernizr.2.5.3.min.js"></script>
         <script src="knockout-min.js"></script>
         <link type="text/css" rel="stylesheet" href="turnjs/default.css">
+        <title><?=@$_GET['titulo']?></title>
     </head>
     <body>
         <div class="sample-flipbook">

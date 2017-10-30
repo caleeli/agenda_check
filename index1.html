@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>AGENDA</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" id="jb-viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=0" />
+        <meta name="description" content="Una agenda diferente para tí" />
+        <script src="jquery.min.js"></script>
+        <script src="vue/dist/vue.min.js"></script>
+        <style type="text/css">
+            html, body, form {
+                margin: 0px;
+                width:100%;
+                height:100%;
+                overflow: hidden;
+            }
+            @font-face {
+                font-family: MyScript;
+                src: url(fonts/happynewyear.ttf);
+            }
+            @font-face {
+                font-family: MyRounded;
+                src: url(fonts/Geoma.otf);
+            }
+            @media screen and (orientation:portrait) {
+                img.slide{
+                    height: 60%;
+                    text-align: center;
+                    margin-top:20%;
+                }
+                img.menosMargin{
+                    margin-left: -33%;
+                }
+                .question-small {
+                    font-size: 150%!important;
+                }
+                div.question{
+                    font-size: 180%;
+                }
+                .slide3{
+                    height: 25%;
+                    overflow: hidden;
+                    padding: 0px!important;
+                }
+                .chooseButtons {
+                    height:100%;
+                    top: 12%!important;
+                }
+                .chooseButtons a img{
+                    height:100%;
+                    margin: 0px;
+                    width: auto!important;
+                }
+                .buttons3 .button {
+                    font-size: 85%;
+                    font-weight: bold;
+                }
+            }
+            @media screen and (orientation:landscape) {
+                img.slide{
+                    height: 100%;
+                    text-align: center;
+                }
+                .question-small {
+                    font-size: 200%!important;
+                }
+                div.question{
+                    font-size: 312%;
+                }
+                .slide3{
+                    width: 33%;
+                    overflow: hidden;
+                    padding: 0px!important;
+                }
+                .chooseButtons {
+                    height:100%;
+                    top: 4em!important;
+                    white-space: nowrap;
+                }
+                .chooseButtons a img{
+                    width:100%;
+                    margin: 0px;
+                }
+                .buttons3 .button {
+                    font-size: 136%;
+                }
+            }
+            input {
+                width:50%;
+            }
+            div.slide{
+                height: 100%;
+                position:relative;
+                display:none;
+                text-align: center;
+            }
+            div.question{
+                position:absolute;
+                top:0px;
+                width:100%;
+                background-color: rgba(200,200,200,0.2);
+                color: black;
+                font-family: sans-serif;
+            }
+            .buttons{
+                position:absolute;
+                bottom:9em;
+                width:100%;
+                font-family: sans-serif;
+            }
+            .navbar{
+                position:absolute;
+                bottom:0%;
+                width:100%;
+                font-family: sans-serif;
+                text-align: left;
+            }
+            .button{
+                padding: 1em;
+                background-color: rgba(200,200,200,0.8);
+                color: black;
+                display: inline-block;
+                font-size: 200%;
+                box-shadow: 10px 10px 5px #008888
+            }
+            .option{
+                padding: 0.5em;
+                color: black;
+                display: block;
+                font-size: 200%;
+                text-decoration: none;
+            }
+            .option:nth-child(even) {
+                background-color: rgba(100,100,100,0.1);
+            }
+            .option:nth-child(odd) {
+                background-color: rgba(200,200,200,0.1);
+            }
+            .buttons2 .button {
+                font-size: 132%;
+            }
+            .small-button {
+                background-color: lightgreen;
+                display: inline-block;
+                box-shadow: 2px 2px 5px #008888;
+                padding: 0.2em 0.4em;
+                border: 1px solid black;
+            }
+            form {
+
+            }
+            input {
+                font-size: 200%;
+            }
+            .choose{
+                white-space: nowrap;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="ee">
+            <div v-for="q in questions" v-bind:id="'qq'+q.n" class="slide">
+                <img class="slide" src="images/seguridad.jpg" style="opacity:0.1">
+                <div class="question">{{q.q}}</div>
+                <center class="buttons">
+                    <a v-for="o in q.o" class="option" href="javascript:void(0)" v-on:click="select(o)">{{o.l}}</a>
+                </center>
+                <div class="navbar">
+                    <a v-if='history.length>1' class="button" href="javascript:void(0)" v-on:click="back()"><img src="images/prev.png" style="height:1em"></a>
+                </div>
+            </div>
+        </div>
+        <script>
+        var API_HOST = 'http://localhost/photos';
+        $(document).ready(function () {
+            var app = new Vue({
+                el: '#ee',
+                data: function () {
+                    var self = this;
+                    return {
+                        questions : [],
+                        answers : {},
+                        current : 0,
+                        history : [],
+                    };
+                },
+                methods: {
+                    select : function (option) {
+                        var self = this;
+                        self.answers[self.questions[self.current].n] = option.l;
+                        if (typeof option.j!=='undefined') {
+                            self.current = self.findIndex(option.j);
+                        } else {
+                            self.current++;
+                        }
+                        self.forward(self.questions[self.current].n);
+                    },
+                    findIndex : function (c) {
+                        var self = this;
+                        return self.questions.findIndex(function(q) {
+                            return q.n == c;
+                        });
+                    },
+                    forward : function (c) {
+                        var self = this;
+                        self.history.push(c);
+                        self.show(c);
+                        self.current = self.findIndex(c);
+                    },
+                    back : function () {
+                        var self = this;
+                        if (self.history.length<=1) return;
+                        self.history.pop();
+                        var c = self.history.pop();
+                        self.forward(c);
+                    },
+                    show : function (c) {
+                        console.log(c);
+                        $('div.slide').fadeOut(function() {
+                            $('#qq'+c).fadeIn();
+                        });
+                    },
+                },
+                mounted: function () {
+                    var self = this;
+                    $.ajax({
+                        url: API_HOST + '/preguntas.php',
+                        dataType: 'json',
+                        success: function (qs) {
+                            self.questions.splice(0);
+                            qs.push({
+                                "n": qs[qs.length-1].n+1,
+                                "q": "Gracias",
+                                "o":[]
+                            });
+                            qs.forEach(function(q) {
+                                self.questions.push(q);
+                            });
+                            self.$nextTick(function() {
+                                self.forward(1);
+                            });
+                        }
+                    });
+                }
+            });
+            window.app = app;
+            $(window).on('hashchange', function() {
+                //app.menu=window.location.hash.substr(1);
+            });
+        });
+        </script>
+    </body>
+</html>
